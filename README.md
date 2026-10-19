@@ -15,6 +15,11 @@ DEE.EXE is B. Deekshaa's personal site: an evolving engineering notebook and art
 - Custom CSS3 for layout, typography, responsiveness, diagrams, and motion
 - Vanilla JavaScript for the mobile menu, footer year, and back-to-top control
 
+## Links
+
+- Live site: <https://dee-kshaa.github.io/dee-personal-site/>
+- Public repository: <https://github.com/dee-kshaa/dee-personal-site>
+
 ## Files
 
 ```text
@@ -38,10 +43,7 @@ Then open <http://localhost:8000>.
 
 ## Publish with GitHub Pages
 
-1. Push these files to the `main` branch of the public `dee-personal-site` repository.
-2. In the repository, open **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, then save.
-4. Wait for the Pages deployment to finish. Open its published URL and check it at desktop and mobile widths.
+The public repository is configured to deploy from the `main` branch at `/ (root)`. After pushing changes, check the **Actions** tab and the Pages section under **Settings** for deployment status, then open the live URL above.
 
 ## Content to verify and personalize
 
