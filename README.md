@@ -5,15 +5,16 @@ DEE.EXE is B. Deekshaa's personal site: an evolving engineering notebook and art
 ## Features
 
 - Responsive, single-page layout with About, Projects, Research, Experience, Art, Currently Exploring, and Contact sections
-- Original orbital diagrams, project illustrations, star field, and artwork-inspired motifs made with SVG and CSS
-- Keyboard-accessible navigation, mobile menu, expandable project notes, and reduced-motion support
+- Artwork-only animated black-hole universe with accretion rings, stars, particles, and an accessible fullscreen viewer
+- Data-driven art collection with no fictional titles or generated artwork; the orbit remains empty until real images are added
+- Keyboard-accessible navigation, mobile menu, expandable project notes, reduced-motion support, and no runtime dependencies
 - No framework, build tool, or runtime dependency
 
 ## Technologies
 
 - Semantic HTML5
 - Custom CSS3 for layout, typography, responsiveness, diagrams, and motion
-- Vanilla JavaScript for the mobile menu, footer year, and back-to-top control
+- Vanilla JavaScript for navigation, the artwork orbit and viewer, footer year, and back-to-top control
 
 ## Links
 
@@ -27,6 +28,10 @@ personal-site/
 ├── index.html
 ├── style.css
 ├── script.js
+├── artworks.js
+├── assets/
+│   └── artwork/
+│       └── README.md
 ├── README.md
 └── LICENSE
 ```
@@ -45,11 +50,34 @@ Then open <http://localhost:8000>.
 
 The public repository is configured to deploy from the `main` branch at `/ (root)`. After pushing changes, check the **Actions** tab and the Pages section under **Settings** for deployment status, then open the live URL above.
 
+## Add original artwork
+
+No actual artwork image files were included in the supplied portfolio folder or website. The artwork universe therefore starts with zero cards; it does not display procedural stand-ins or treat sample titles as actual works.
+
+1. Add your own image files to `assets/artwork/` (JPG/JPEG, PNG, or WebP; portrait, landscape, and square images are supported). For example: `assets/artwork/my-mandala.jpg`.
+2. Add one entry for each image to the array in `artworks.js`, using the exact title and medium you want shown:
+
+```js
+window.artworks = [
+  {
+    id: 'my-mandala',
+    src: 'assets/artwork/my-mandala.jpg',
+    title: 'Your verified title',
+    category: 'Mandala',
+    alt: 'A concise visual description of your artwork',
+    description: 'Optional description written by you.',
+    attribution: 'Optional scan or photo credit'
+  }
+];
+```
+
+The path is relative to the site, so it works on GitHub Pages under `/dee-personal-site/`. Use your actual artwork and metadata. Images use `object-fit: contain` so the viewer does not crop or distort them. Keep `description` and `attribution` only when there is information to share.
+
 ## Content to verify and personalize
 
 The GitHub and LinkedIn links point to Dee's profiles. No public email address was supplied, so Email remains a visible placeholder. Before submission, verify all project descriptions and experience entries against original records. In particular, add the exact details for the NMIC '26 review-paper status and the rover's actual hardware/network version. No measurements, rankings, publication identifiers, or GitHub project repositories are claimed here.
 
-The source art portfolio included titles for eight works but used empty gallery placeholders rather than the artwork images. The Art section preserves those titles and uses original CSS motifs as stand-ins. Replace the motifs with the original artwork files when available.
+The source portfolio folder contains the black-hole/orbit concept and placeholder SVG art, but no actual artwork image files. The new Art section retains the animated universe concept and waits for real images instead of using those placeholders. See `assets/artwork/README.md` and `artworks.js` to add them.
 
 ## AI-use disclosure
 

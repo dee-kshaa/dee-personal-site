@@ -8,6 +8,7 @@
   <title>DEE.EXE — An Engineer's Universe</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090d19'/%3E%3Ctext x='10' y='44' font-family='monospace' font-size='30' font-weight='bold' fill='%237ddcff'%3ED.%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
+  <script src="artworks.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -16,7 +17,7 @@
     <a class="brand" href="#top" aria-label="DEE.EXE home"><span class="brand-mark">D<span>.</span></span><span>DEE.EXE</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button>
     <nav id="primary-nav" class="nav-links" aria-label="Main navigation">
-      <a href="#about">About</a><a href="#projects">Projects</a><a href="#research">Research</a><a href="#archive">Archive</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#projects">Projects</a><a href="#research">Research</a><a href="#archive">Archive</a><a href="#artworks">Art</a><a href="#contact">Contact</a>
     </nav>
     <div class="status"><i aria-hidden="true"></i><span>EXPLORING / BUILDING / LEARNING</span></div>
   </header>
@@ -71,10 +72,34 @@
 
     <section class="section archive-section" id="archive" aria-labelledby="archive-title">
       <div class="section-heading"><p class="eyebrow">04 / FIELD RECORD</p><span class="section-rule"></span><span class="section-note">EXPERIENCE &amp; SELECTED WORK</span></div><div class="section-intro"><h2 id="archive-title">Milestones &amp;<br><em>artifacts.</em></h2><p>A record of engineering, research, and the visual practice that accompanies it.</p></div>
-      <div class="timeline"><article class="timeline-item"><span class="timeline-mark"></span><div class="timeline-meta">STUDENT LEADERSHIP</div><div><h3>IEEE Signal Processing Society — Vice Chair</h3><p>Student chapter leadership experience.</p></div><span class="timeline-status">ROLE</span></article><article class="timeline-item"><span class="timeline-mark"></span><div class="timeline-meta">AVIATION / NAVIGATION</div><div><h3>GAGAN internship — Airports Authority of India</h3><p>Internship experience related to India's satellite-based augmentation system.</p></div><span class="timeline-status">INTERNSHIP</span></article><article class="timeline-item"><span class="timeline-mark"></span><div class="timeline-meta">CONFERENCE / 2026</div><div><h3>IEEE ICWITE 2026</h3><p>Paper presentation on the portable UV-C water bottle and purifier.</p></div><span class="timeline-status">PRESENTED</span></article><article class="timeline-item"><span class="timeline-mark"></span><div class="timeline-meta">REVIEW PAPER / 2026</div><div><h3>NMIC ’26</h3><p>Review-paper achievement; add the exact title and status when confirmed.</p></div><span class="timeline-status">REVIEW PAPER</span></article></div>
-      <div class="art-heading"><div><p class="eyebrow">05 / ART PRACTICE</p><h3>Patterns, marks, <em>and motion.</em></h3></div><p>The source portfolio described an evolving practice across painting, digital art, mandala, drawing, and design. The cards below retain its titled works as a place to reconnect original images.</p></div>
-      <div class="art-grid"><article class="art-tile art-one"><span>01 / PAINTING</span><h4>Untitled I</h4><i class="art-orbit"></i></article><article class="art-tile art-two"><span>02 / DIGITAL ART</span><h4>Wave Form</h4><i class="art-wave"></i></article><article class="art-tile art-three"><span>03 / MANDALA</span><h4>Mandala I</h4><i class="art-mandala">✳</i></article><article class="art-tile art-four"><span>04 / DRAWING</span><h4>Fragment</h4><i class="art-fragment"></i></article><article class="art-tile art-five"><span>05 / DESIGN</span><h4>Grid Study</h4><i class="art-gridmark"></i></article><article class="art-tile art-six"><span>06 / MANDALA</span><h4>Cosmos Mandala</h4><i class="art-cosmos">✺</i></article><article class="art-tile art-seven"><span>07 / DIGITAL ART</span><h4>Composition II</h4><i class="art-composition"></i></article><article class="art-tile art-eight"><span>08 / DOODLE</span><h4>Doodle Series</h4><i class="art-doodle">∿</i></article></div>
     </section>
+
+    <section class="section artworks-section" id="artworks" aria-labelledby="artworks-title">
+      <div class="section-heading"><p class="eyebrow">05 / ART PRACTICE</p><span class="section-rule"></span><span class="section-note">PERSONAL WORKS</span></div>
+      <div class="art-heading"><div><h2 id="artworks-title">My Art <em>Universe.</em></h2></div><p>Artwork circles a dark event horizon through cyan, electric-blue, and violet light. Select a piece to bring it in close.</p></div>
+      <div class="universe-gallery" id="universeGallery" aria-label="Animated artwork orbits around a black hole">
+        <div class="universe-backdrop" aria-hidden="true"></div>
+        <div class="orbit-guides" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="universe-stars" id="universeStars" aria-hidden="true"></div>
+        <div class="universe-meteors" aria-hidden="true"><i></i><i></i></div>
+        <div class="black-hole-system" id="blackHoleSystem" aria-hidden="true">
+          <div class="bh-distortion"></div><div class="bh-dust bh-dust-a"></div><div class="bh-dust bh-dust-b"></div>
+          <div class="bh-ring bh-ring-1"></div><div class="bh-ring bh-ring-2"></div><div class="bh-ring bh-ring-3"></div><div class="bh-ring bh-ring-4"></div>
+          <div class="bh-swirl"></div><div class="bh-horizon"></div><div class="bh-core"></div>
+          <div class="bh-particles" id="bhParticles"></div>
+        </div>
+        <div class="orbit-items" id="orbitItems" aria-live="polite"></div>
+        <p class="universe-empty" id="universeEmpty">The universe is ready for your artwork.<br><span>Add image files to <code>assets/artwork/</code>, then list them in <code>artworks.js</code>.</span></p>
+        <span class="universe-caption" aria-hidden="true">EVENT HORIZON&nbsp; / &nbsp;PERSONAL ARTWORK</span>
+      </div>
+      <p class="universe-note">Only original image files added to the artwork collection appear in orbit.</p>
+    </section>
+
+    <dialog class="artwork-modal" id="artworkViewer" aria-labelledby="viewerTitle">
+      <form method="dialog"><button class="artwork-modal-close" aria-label="Close artwork viewer">×</button></form>
+      <div class="artwork-modal-image"><img id="viewerImage" alt=""></div>
+      <div class="artwork-modal-info"><p class="eyebrow" id="viewerCategory"></p><h2 id="viewerTitle"></h2><p id="viewerDescription"></p><small id="viewerAttribution" hidden></small></div>
+    </dialog>
 
     <section class="section now-section" aria-labelledby="now-title"><div class="section-heading"><p class="eyebrow">06 / NOW</p><span class="section-rule"></span><span class="section-note">CURRENTLY EXPLORING</span></div><div class="now-layout"><h2 id="now-title">In the lab,<br><em>in the margins.</em></h2><div class="now-list"><p><span>01</span> Understanding navigation and communication systems</p><p><span>02</span> Building and documenting engineering prototypes</p><p><span>03</span> Learning through experiments, papers, and technical projects</p></div></div></section>
 
