@@ -17,7 +17,7 @@ DEE.EXE is B. Deekshaa's personal site: an evolving engineering notebook and art
 
 ## Links
 
-- Live site: <https://dee-kshaa.github.io/dee-personal-site/>
+- GitHub Pages URL (configured; first deployment pending): <https://dee-kshaa.github.io/dee-personal-site/>
 - Public repository: <https://github.com/dee-kshaa/dee-personal-site>
 
 ## Files
