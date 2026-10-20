@@ -6,7 +6,7 @@ DEE.EXE is B. Deekshaa's personal site: an evolving engineering notebook and res
 
 - Responsive, single-page layout with About, Projects, Research, Experience, Research Universe, Currently Exploring, and Contact sections
 - Animated black-hole Research Universe with three category orbits, stars, particles, and accessible entry details
-- Data-driven research, engineering project, and repository entries, with a keyboard-accessible browse list
+- Compact, keyboard-accessible research and project satellites orbiting the black hole; activation opens verified entry details
 - Keyboard-accessible navigation, mobile menu, expandable project notes, reduced-motion support, and no runtime dependencies
 - No framework, build tool, or runtime dependency
 
@@ -48,7 +48,7 @@ The GitHub Pages URL is listed above. After committing and pushing changes, chec
 
 ## Research Universe content
 
-The orbit reads from `universe-data.js`. Add entries only when their titles, descriptions, status, and URLs can be supported by source material. Use `research`, `projects`, or `repositories` arrays; repository entries should only be added after verifying their URL and project description. A keyboard-accessible list below the visualization provides access to every entry, and reduced-motion preference freezes the orbits in place.
+The orbit reads from `universe-data.js`. Add entries only when their titles, descriptions, status, and URLs can be supported by source material. Use `research`, `projects`, or `repositories` arrays; repository entries should only be added after verifying their URL and project description. Each satellite is a keyboard-accessible button that opens a detail dialog, and reduced-motion preference freezes the orbits in place.
 
 The Research Universe includes the ICWITE 2026 paper presentation listed in the existing portfolio archive and a revised GNSS/SBAS review manuscript listed alongside NMIC '26 in that archive. Local paper files verify both titles. The available files do not confirm an NMIC acceptance, presentation, or publication, so the entry states that status as unconfirmed. Four engineering project entries are included; the rover is described as a design and validation plan because the available paper does not document completed implementation or measured results. The repository ring is empty because no project repository URL could be verified for safe publication.
 

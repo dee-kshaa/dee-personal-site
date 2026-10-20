@@ -43,8 +43,6 @@ topButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 's
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const system = document.querySelector('#blackHoleSystem');
   const modalLink = document.querySelector('#viewerLink');
-  const list = document.querySelector('#universeList');
-  const listEmpty = document.querySelector('#universeListEmpty');
   const orbitState = [];
   let selectedButton = null;
   let frame = 0;
@@ -105,31 +103,21 @@ topButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 's
     const button = document.createElement('button');
     button.className = 'orbit-card'; button.type = 'button';
     button.setAttribute('aria-label', `${entry.title}, ${labels[entry.category]}`);
-    const icon = document.createElement('span'); icon.className = 'orbit-icon'; icon.setAttribute('aria-hidden', 'true');
-    icon.textContent = entry.category === 'research' ? '⌁' : entry.category === 'projects' ? '⌘' : '◈';
-    const title = document.createElement('span'); title.className = 'orbit-title'; title.textContent = entry.title;
-    const category = document.createElement('span'); category.className = 'orbit-category'; category.textContent = labels[entry.category];
-    button.append(icon, title, category); item.append(button); orbitLayer.append(item);
+    const satellite = document.createElement('span'); satellite.className = 'orbit-satellite'; satellite.setAttribute('aria-hidden', 'true');
+    const title = document.createElement('span'); title.className = 'orbit-title'; title.textContent = entry.orbitTitle || entry.title;
+    button.append(satellite, title); item.append(button); orbitLayer.append(item);
     button.addEventListener('click', () => openEntry(entry, item, button));
-    const listItem = document.createElement('li');
-    const listButton = document.createElement('button'); listButton.type = 'button';
-    listButton.textContent = `${labels[entry.category]} · ${entry.title}`;
-    listButton.addEventListener('click', () => openEntry(entry, item, listButton));
-    listItem.append(listButton); list.append(listItem);
     return { item, button, entry, angle: 0, speed: entry.category === 'research' ? .035 : entry.category === 'projects' ? -.026 : .02, rx: 0, ry: 0 };
   }
 
   function placeOrbits() {
     const width = stage.clientWidth, height = stage.clientHeight;
-    const smallScreen = window.matchMedia('(max-width: 600px)').matches;
-    const compactScreen = window.matchMedia('(max-width: 760px)').matches;
-    const cardWidth = smallScreen ? 40 : compactScreen ? 96 : 142;
-    const cardHeight = smallScreen ? 40 : compactScreen ? 88 : 116;
-    const maxRx = Math.max(24, (width - cardWidth - 36) / 2);
-    const maxRy = Math.max(24, (height - cardHeight - 72) / 2);
+    const satelliteSize = 20;
+    const maxRx = Math.max(24, (width - satelliteSize - 36) / 2);
+    const maxRy = Math.max(24, (height - satelliteSize - 72) / 2);
     const maxRadius = Math.min(maxRx, maxRy / .98);
     const coreRadius = system.clientWidth * .205;
-    const itemHalfDiagonal = Math.hypot(cardWidth / 2, cardHeight / 2);
+    const itemHalfDiagonal = Math.hypot(satelliteSize / 2, satelliteSize / 2);
     const coreClearance = coreRadius + itemHalfDiagonal + 14;
     const scale = { research: .52, projects: .76, repositories: 1 };
     geometry = {};
@@ -219,6 +207,9 @@ topButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 's
       orbit.item.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
       orbit.item.style.setProperty('--depth', depth.toFixed(3));
       orbit.item.style.zIndex = String(Math.round(depth * 100));
+      const point = positionFor(orbit);
+      orbit.item.dataset.tooltipX = point.x < stage.clientWidth * .4 ? 'right' : point.x > stage.clientWidth * .6 ? 'left' : 'center';
+      orbit.item.dataset.tooltipY = point.y < stage.clientHeight * .35 ? 'below' : 'above';
     });
   }
 
@@ -251,7 +242,6 @@ topButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 's
 
   addAtmosphere();
   entries.forEach((entry) => orbitState.push(makeCard(entry)));
-  listEmpty.hidden = entries.some((entry) => entry.category === 'repositories');
   placeOrbits();
   if ('ResizeObserver' in window) new ResizeObserver(placeOrbits).observe(stage);
   else window.addEventListener('resize', placeOrbits, { passive: true });
