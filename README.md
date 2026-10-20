@@ -6,7 +6,9 @@ DEE.EXE is a static, single-page engineering portfolio focused on navigation, co
 
 - Responsive About, Projects & Research, Currently Exploring, and Contact sections
 - A black-hole-centered project/research scene with three orbital categories and a gently drifting shared assembly
+- A framed cinematic landing hero in the existing cyan-violet palette
 - Keyboard-operable satellite buttons, visible focus and hover identification, and a native detail dialog with status, contribution, technologies, source notes, and verified links where available
+- Nova, an original draggable space companion that docks in a chosen screen corner, remembers its position, shares randomized research facts, and supports keyboard corner controls
 - Responsive mobile navigation and explicit reduced-motion support
 - No framework, build tool, or runtime dependency
 

@@ -28,21 +28,101 @@ const companion = document.querySelector('#siteCompanion');
 const companionButton = document.querySelector('#companionButton');
 const companionSpeech = document.querySelector('#companionSpeech');
 if (companion && companionButton && companionSpeech) {
-  const greetings = ['Hi, explorer!', 'Ready for another orbit?', 'You found my star!'];
-  let greetingIndex = 0;
+  const facts = [
+    'A GNSS receiver can extract UTC time from navigation messages such as NMEA sentences.',
+    'SBAS systems such as India’s GAGAN augment GNSS with corrections and integrity information.',
+    'An interrupt lets an embedded controller react promptly to a safety event, such as an opened UV-C enclosure.',
+    'Geotagging a signal measurement combines its location with the measured radio conditions.',
+    'A UV-C safety interlock can cut lamp power when the purifier enclosure is opened.',
+    'In a retrieval system, breaking documents into chunks helps search find relevant passages.'
+  ];
+  let lastFact = -1;
   let companionTimer;
+  let drag = null;
+  let dragged = false;
+  const docks = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
+  const validDock = (dock) => docks.includes(dock);
+
+  function setDock(dock, persist = true) {
+    if (!validDock(dock)) return;
+    companion.dataset.dock = dock;
+    companion.removeAttribute('data-dragging');
+    companion.style.removeProperty('left');
+    companion.style.removeProperty('top');
+    if (persist) {
+      try { window.localStorage.setItem('nova-dock', dock); } catch (_) { /* Storage may be disabled. */ }
+    }
+  }
+
+  try {
+    const savedDock = window.localStorage.getItem('nova-dock');
+    if (validDock(savedDock)) setDock(savedDock, false);
+  } catch (_) { /* Use the default dock when storage is unavailable. */ }
+
   companionButton.addEventListener('click', () => {
+    if (dragged) { dragged = false; return; }
     companion.classList.remove('is-waving');
     void companion.offsetWidth;
     companion.classList.add('is-waving');
-    companionSpeech.textContent = greetings[greetingIndex % greetings.length];
-    greetingIndex += 1;
+    let nextFact = Math.floor(Math.random() * facts.length);
+    if (facts.length > 1 && nextFact === lastFact) nextFact = (nextFact + 1) % facts.length;
+    lastFact = nextFact;
+    companionSpeech.textContent = facts[nextFact];
     companionSpeech.hidden = false;
     window.clearTimeout(companionTimer);
     companionTimer = window.setTimeout(() => {
       companion.classList.remove('is-waving');
       companionSpeech.hidden = true;
-    }, 2600);
+    }, 6000);
+  });
+
+  companionButton.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0) return;
+    const rect = companion.getBoundingClientRect();
+    drag = { pointerId: event.pointerId, startX: event.clientX, startY: event.clientY, left: rect.left, top: rect.top, moved: false };
+    companionButton.setPointerCapture(event.pointerId);
+  });
+
+  companionButton.addEventListener('pointermove', (event) => {
+    if (!drag || event.pointerId !== drag.pointerId) return;
+    const dx = event.clientX - drag.startX;
+    const dy = event.clientY - drag.startY;
+    if (!drag.moved && Math.hypot(dx, dy) < 6) return;
+    drag.moved = true;
+    companion.setAttribute('data-dragging', 'true');
+    const maxLeft = Math.max(8, window.innerWidth - companion.offsetWidth - 8);
+    const maxTop = Math.max(8, window.innerHeight - companion.offsetHeight - 8);
+    companion.style.left = `${Math.min(maxLeft, Math.max(8, drag.left + dx))}px`;
+    companion.style.top = `${Math.min(maxTop, Math.max(8, drag.top + dy))}px`;
+  });
+
+  function finishDrag(event) {
+    if (!drag || event.pointerId !== drag.pointerId) return;
+    if (drag.moved) {
+      const rect = companion.getBoundingClientRect();
+      const midX = rect.left + rect.width / 2;
+      const midY = rect.top + rect.height / 2;
+      const dock = `${midY < window.innerHeight / 2 ? 'top' : 'bottom'}-${midX < window.innerWidth / 2 ? 'left' : 'right'}`;
+      setDock(dock);
+      dragged = true;
+      window.setTimeout(() => { dragged = false; }, 500);
+    }
+    drag = null;
+  }
+  companionButton.addEventListener('pointerup', finishDrag);
+  companionButton.addEventListener('pointercancel', finishDrag);
+
+  companionButton.addEventListener('keydown', (event) => {
+    const dock = companion.dataset.dock || 'bottom-right';
+    const [vertical, horizontal] = dock.split('-');
+    let next = dock;
+    if (event.key === 'ArrowLeft') next = `${vertical}-left`;
+    else if (event.key === 'ArrowRight') next = `${vertical}-right`;
+    else if (event.key === 'ArrowUp') next = `top-${horizontal}`;
+    else if (event.key === 'ArrowDown') next = `bottom-${horizontal}`;
+    else return;
+    event.preventDefault();
+    setDock(next);
   });
 }
 
