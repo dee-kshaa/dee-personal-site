@@ -6,7 +6,7 @@ window.universeItems = {
       category: 'research',
       orbitTitle: 'UV-C Purifier · ICWITE 2026',
       title: 'Portable UV-C Water Bottle and Purifier: Design, Development, and Performance Evaluation',
-      description: 'Paper presentation listed in the existing portfolio archive. The paper describes a portable four-stage filtration and UV-C prototype; it reports preliminary functional testing and identifies calibrated experimental validation as future work.',
+      description: 'Paper presentation listed in the supplied portfolio source. The paper describes a portable four-stage filtration and UV-C prototype; it reports preliminary functional testing and identifies calibrated experimental validation as future work.',
       status: 'Paper presentation (as listed in the existing site archive)',
       venue: 'IEEE ICWITE 2026',
       topic: 'Portable water treatment',
@@ -19,7 +19,7 @@ window.universeItems = {
       title: 'SNAS — Satellite Navigation and Aviation Standards: A Comprehensive Review of GNSS, SBAS Enhancements, and High-Integrity Requirements for Modern Aviation',
       description: 'A revised review manuscript on GNSS, satellite-based augmentation, and aviation navigation integrity. The local manuscript gives its title and authors; conference acceptance, presentation, and publication status are not confirmed in the available source.',
       status: 'Revised manuscript; conference and publication status unconfirmed',
-      venue: 'NMIC 2026 (as listed in the existing portfolio archive)',
+      venue: 'NMIC 2026 (as listed in the supplied portfolio source)',
       topic: 'GNSS / Aviation navigation',
       url: null
     }
