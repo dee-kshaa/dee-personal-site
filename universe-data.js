@@ -78,16 +78,16 @@ window.universeItems = {
       contribution: 'Designed and directed feature development, authored a backend change, and reviewed/merged coding-agent pull requests.',
       status: 'Active showcase repository; AI-assisted implementation and contribution scope stated explicitly.',
       technologies: ['FastAPI', 'React', 'OCR', 'Ollama / Gemma', 'Sentence Transformers / FAISS', 'Python', 'JavaScript'],
-      sourceNote: 'The supplied research CV reports post-hoc LIME and SHAP work. The checked repository source does not confirm those implementation call sites. The local Git remote does not establish whether this repository is public, so its direct URL is withheld.',
-      url: null
+      sourceNote: 'The supplied research CV reports post-hoc LIME and SHAP work. The checked repository source does not confirm those implementation call sites.',
+      url: 'https://github.com/dee-kshaa/SafeIntern-AI'
     },
     {
       id: 'transitops-retrieval', category: 'repositories', orbitTitle: 'TransitOps · Retrieval',
       title: 'TransitOps — ChromaDB Retrieval Layer',
       description: 'A retrieval contribution to a forked team fleet-operations project. The repository audit describes a Markdown ingestion and chunking pipeline backed by ChromaDB and a similarity-search Retriever; it does not substantiate the broader SQL-routing or generation claims.',
       contribution: 'Built the documented ingestion and retrieval modules in the team fork; the wider TransitOps application is not claimed as individual work.',
-      status: 'Team/fork-based contribution; repository name and contribution verified in the supplied GitHub audit, but a direct URL was not included there.',
-      technologies: ['Python', 'ChromaDB', 'Document chunking', 'Similarity search'], url: null
+      status: 'Team/fork-based contribution; scope limited to the documented ingestion and retrieval modules.',
+      technologies: ['Python', 'ChromaDB', 'Document chunking', 'Similarity search'], url: 'https://github.com/dee-kshaa/TransitOps'
     },
     {
       id: 'claim-review-docs', category: 'repositories', orbitTitle: 'Evidence Review · Docs',
@@ -97,7 +97,35 @@ window.universeItems = {
       status: 'Forked project; not presented as an individually implemented system.',
       technologies: ['Python (repository language only)'],
       sourceNote: 'The audit does not verify FastAPI, Pydantic, OpenCV, or interchangeable VLM backends as working code or as Deekshaa’s implementation.',
-      url: null
+      url: 'https://github.com/dee-kshaa/claim-review'
+    },
+    {
+      id: 'bugs-begone-router', category: 'repositories', orbitTitle: 'WhatsApp · Triage Router',
+      title: 'AI-Powered WhatsApp Notification Router',
+      description: 'An explainable message-triage tool that routes incoming content to notify, digest, or mute decisions and records the reasons, confidence, and supporting evidence for each decision.',
+      contribution: 'Built the message-triage and explainable routing workflow; the repository audit records nine commits, mostly authored directly, plus one coding-agent contribution.',
+      status: 'Hackathon project; repository is public and has a substantive implementation.',
+      technologies: ['Python', 'Deterministic routing', 'Evidence traces', 'OCR / voice intake'],
+      sourceNote: 'The repository README documents text routing and references OCR and voice intake. No performance metrics are claimed.',
+      url: 'https://github.com/dee-kshaa/bugs-begone'
+    },
+    {
+      id: 'wise-mom', category: 'repositories', orbitTitle: 'Wise Mom · AI Finance',
+      title: 'Wise Mom — AI Financial Guardian',
+      description: 'A browser companion and Python backend for reviewing purchase decisions, with a local ledger and dashboard. The repository describes deterministic fallback behavior alongside AI-assisted analysis.',
+      contribution: 'Directed iteration on the project; the public commit history includes a feature merged from a Copilot coding-agent pull request and a later update.',
+      status: 'Public personal project; contribution is AI-assisted and described from the repository history.',
+      technologies: ['Chrome Manifest V3', 'JavaScript', 'Python', 'FastAPI', 'SQLite'],
+      url: 'https://github.com/dee-kshaa/wise-mom'
+    },
+    {
+      id: 'pharmacy-management', category: 'repositories', orbitTitle: 'Pharmacy · PHP / MySQL',
+      title: 'Pharmacy Management System',
+      description: 'A PHP/MySQL pharmacy-management application provided as matching main and test project snapshots, with safe configuration examples and a synthetic database schema.',
+      contribution: 'Published the application snapshots and setup material while excluding local credentials and sensitive transaction records.',
+      status: 'Public software project; repository README documents the snapshot structure and safe local setup.',
+      technologies: ['PHP', 'MySQL', 'HTML', 'CSS'],
+      url: 'https://github.com/dee-kshaa/pharma-pharmacy-management-system'
     }
   ]
 };
