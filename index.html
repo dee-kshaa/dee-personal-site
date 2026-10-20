@@ -102,5 +102,28 @@
   </main>
   <footer class="site-footer"><a class="brand" href="#top"><span class="brand-mark">D<span>.</span></span><span>DEE.EXE</span></a><p>Built with HTML, CSS, curiosity, and a little help from AI.</p><span>© <span id="year"></span> B. Deekshaa</span></footer>
   <button class="to-top" type="button" aria-label="Back to top">↑</button>
+  <aside class="site-companion" id="siteCompanion" aria-label="Nova, your space companion">
+    <p class="companion-speech" id="companionSpeech" aria-live="polite" hidden></p>
+    <button class="companion-button" id="companionButton" type="button" aria-label="Say hi to Nova, your space companion" title="Say hi to Nova">
+      <svg class="companion-art" viewBox="0 0 104 120" role="img" aria-labelledby="novaTitle" focusable="false">
+        <title id="novaTitle">Nova, a tiny star explorer</title>
+        <defs>
+          <linearGradient id="novaShell" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9c91ff"/><stop offset="1" stop-color="#4e8cff"/></linearGradient>
+          <linearGradient id="novaSuit" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#718aff"/><stop offset="1" stop-color="#435bca"/></linearGradient>
+        </defs>
+        <g class="companion-sparkles" fill="#9cecff"><path d="M14 33l2.5 6.5L23 42l-6.5 2.5L14 51l-2.5-6.5L5 42l6.5-2.5z"/><circle cx="91" cy="25" r="2"/><circle cx="87" cy="91" r="1.5"/></g>
+        <path d="M47 13 53 3l5 12" fill="none" stroke="#69e4ff" stroke-width="3" stroke-linecap="round"/><circle cx="54" cy="5" r="4" fill="#b4a4ff"/>
+        <path d="M23 32c0-13 12-22 29-22h3c18 0 29 11 29 27v15c0 15-11 25-28 25H48c-17 0-28-10-28-25V39c0-3 1-5 3-7Z" fill="url(#novaShell)" stroke="#b9b4ff" stroke-width="2"/>
+        <path d="M33 36c0-6 5-10 12-10h18c8 0 13 5 13 12v12c0 7-5 11-13 11H45c-7 0-12-4-12-11V36Z" fill="#17234e" stroke="#303c78" stroke-width="2"/>
+        <g class="companion-eyes" fill="none" stroke="#8cf5ff" stroke-linecap="round" stroke-width="3"><path d="M42 41v4m0 0 5 4 5-4"/><path d="M59 48h8"/></g>
+        <path d="M35 78h34c7 0 12 5 12 12v10H25V90c0-7 4-12 10-12Z" fill="url(#novaSuit)" stroke="#91a0ff" stroke-width="2"/>
+        <path d="m52 84 2 4 4 .5-3 3 .7 4-3.7-2-3.7 2 .7-4-3-3 4-.5z" fill="#a2f2ff"/>
+        <path class="companion-arm companion-arm-left" d="M27 83c-6 3-9 9-8 16l4 7 6-2 2-12" fill="url(#novaShell)" stroke="#8495ff" stroke-width="2" stroke-linejoin="round"/>
+        <path class="companion-arm companion-arm-right" d="M77 83c6 3 9 9 8 16l-4 7-6-2-2-12" fill="url(#novaShell)" stroke="#8495ff" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M35 99h13v13H37c-4 0-6-3-5-7l3-6Zm20 0h13l3 6c1 4-1 7-5 7H55V99Z" fill="#526dd9" stroke="#8293ff" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <span class="companion-name" aria-hidden="true">NOVA</span>
+  </aside>
 </body>
 </html>

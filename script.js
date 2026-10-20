@@ -24,6 +24,28 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 topButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+const companion = document.querySelector('#siteCompanion');
+const companionButton = document.querySelector('#companionButton');
+const companionSpeech = document.querySelector('#companionSpeech');
+if (companion && companionButton && companionSpeech) {
+  const greetings = ['Hi, explorer!', 'Ready for another orbit?', 'You found my star!'];
+  let greetingIndex = 0;
+  let companionTimer;
+  companionButton.addEventListener('click', () => {
+    companion.classList.remove('is-waving');
+    void companion.offsetWidth;
+    companion.classList.add('is-waving');
+    companionSpeech.textContent = greetings[greetingIndex % greetings.length];
+    greetingIndex += 1;
+    companionSpeech.hidden = false;
+    window.clearTimeout(companionTimer);
+    companionTimer = window.setTimeout(() => {
+      companion.classList.remove('is-waving');
+      companionSpeech.hidden = true;
+    }, 2600);
+  });
+}
+
 // Data-driven research universe. Orbital coordinates and guide paths share one model.
 (() => {
   const stage = document.querySelector('#universeGallery');
