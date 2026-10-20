@@ -136,7 +136,7 @@ if (companion && companionButton && companionSpeech) {
 
   function placeOrbits() {
     const width = stage.clientWidth, height = stage.clientHeight;
-    const satelliteSize = 20;
+    const satelliteSize = window.matchMedia('(max-width: 600px)').matches ? 18 : 20;
     const maxRx = Math.max(24, (width - satelliteSize - 36) / 2);
     const maxRy = Math.max(24, (height - satelliteSize - 72) / 2);
     const maxRadius = Math.min(maxRx, maxRy / .98);

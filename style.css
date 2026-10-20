@@ -305,6 +305,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .orbit-title { max-width:min(175px,calc(100vw - 2rem)); font-size:.64rem; }
   .universe-caption { font-size:.46rem; }
 }
+@media (max-width:600px) {
+  .orbit-item,.orbit-card { width:18px; height:18px; }
+}
 @media (prefers-reduced-motion:reduce) {
   .universe-backdrop,.universe-star,.universe-meteors i,.bh-dust,.bh-swirl,.bh-distortion,.bh-particle,.universe-modal[open] { animation:none !important; }
   .universe-orbit-assembly,.orbit-item { animation:none !important; transition:none !important; }
