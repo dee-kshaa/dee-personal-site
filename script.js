@@ -64,6 +64,7 @@ if (companion && companionButton && companionSpeech) {
     .map((entry) => ({ ...entry, category })) : []);
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const system = document.querySelector('#blackHoleSystem');
+  const assembly = document.querySelector('#universeOrbitAssembly');
   const modalLink = document.querySelector('#viewerLink');
   const orbitState = [];
   let selectedButton = null;
@@ -99,13 +100,14 @@ if (companion && companionButton && companionSpeech) {
     selectedButton = button;
     cancelAnimationFrame(frame); frame = 0;
     system.classList.add('is-paused');
+    assembly?.classList.add('is-paused');
     item.classList.add('is-focused');
     document.querySelector('#viewerCategory').textContent = labels[entry.category];
     document.querySelector('#viewerTitle').textContent = entry.title;
     document.querySelector('#viewerDescription').textContent = entry.description;
     const metadata = document.querySelector('#viewerMetadata');
     metadata.replaceChildren();
-    [['Status', entry.status], ['Venue / topic', entry.venue || entry.topic], ['Technologies', entry.technologies?.join(' · ')], ['Authors', entry.authors], ['Publication', entry.publicationStatus]]
+    [['Status', entry.status], ['Contribution', entry.contribution], ['Venue / topic', entry.venue || entry.topic], ['Technologies', entry.technologies?.join(' · ')], ['Authors', entry.authors], ['Source note', entry.sourceNote]]
       .filter(([, value]) => value).forEach(([label, value]) => {
         const dt = document.createElement('dt'); dt.textContent = label;
         const dd = document.createElement('dd'); dd.textContent = value;
@@ -250,6 +252,7 @@ if (companion && companionButton && companionSpeech) {
   dialog.addEventListener('close', () => {
     orbitLayer.querySelector('.is-focused')?.classList.remove('is-focused');
     system.classList.remove('is-paused');
+    assembly?.classList.remove('is-paused');
     selectedButton?.focus({ preventScroll: true }); selectedButton = null;
     startMotion();
   });

@@ -1,24 +1,20 @@
 # DEE.EXE — An Engineer's Universe
 
-DEE.EXE is B. Deekshaa's personal site: an evolving engineering notebook and research portfolio. It introduces her interests in satellite navigation, signals, embedded systems, research, and creative work. The site is designed as a small project that can be read, edited, and hosted as static files while learning web development.
+DEE.EXE is a static, single-page engineering portfolio focused on navigation, communications, embedded systems, research, and software projects.
 
 ## Features
 
-- Responsive, single-page layout with About, Projects, Research, Research Universe, Currently Exploring, and Contact sections
-- Animated black-hole Research Universe with three category orbits, stars, particles, and accessible entry details
-- Compact, keyboard-accessible research and project satellites orbiting the black hole; activation opens verified entry details
-- Keyboard-accessible navigation, mobile menu, expandable project notes, reduced-motion support, and no runtime dependencies
+- Responsive About, Projects & Research, Currently Exploring, and Contact sections
+- A black-hole-centered project/research scene with three orbital categories and a gently drifting shared assembly
+- Keyboard-operable satellite buttons, visible focus and hover identification, and a native detail dialog with status, contribution, technologies, source notes, and verified links where available
+- Responsive mobile navigation and explicit reduced-motion support
 - No framework, build tool, or runtime dependency
 
 ## Technologies
 
 - Semantic HTML5
-- Custom CSS3 for layout, typography, responsiveness, diagrams, and motion
-- Vanilla JavaScript for navigation, the Research Universe orbit and entry dialog, footer year, and back-to-top control
-
-## Links
-
-- GitHub Pages URL (configured; first deployment pending): <https://dee-kshaa.github.io/dee-personal-site/>
+- Custom responsive CSS with reduced-motion handling
+- Vanilla JavaScript for navigation, orbital positions and animation, entry details, footer year, and back-to-top control
 
 ## Files
 
@@ -34,37 +30,37 @@ personal-site/
 
 ## Run locally
 
-Open `index.html` directly, or start a static server in this folder:
+Open `index.html` directly, or run a static server from this folder:
 
 ```sh
 python3 -m http.server 8000
 ```
 
-Then open <http://localhost:8000>.
+Then visit <http://localhost:8000>.
 
-## Publish with GitHub Pages
+## Projects & Research content
 
-The GitHub Pages URL is listed above. After committing and pushing changes, check Actions and Pages settings for the deployment status. Keep asset and page links repository-relative so they resolve under `/dee-personal-site/`.
+`universe-data.js` is the single content source for the research, project, and repository satellites. Every button opens the same accessible detail dialog. The SVG/CSS black hole, its orbit guides, and the satellites share one responsive assembly, so the central visual drifts as a unit while the data-driven satellites continue along their calculated ellipses. Reduced-motion preferences stop both movements.
 
-## Research Universe content
+Content was checked against the supplied Research CV, Core ECE resume, GAGAN internship report, research manuscripts, GitHub repository audit, and the local SafeIntern-AI repository. The two papers are marked accepted according to the supplied CV/resume; the UV-C paper is marked orally presented as stated there. ResearchGate links were checked against the matching paper titles. Repository visibility could not be verified in this environment, so direct repository URLs are withheld to avoid exposing a private destination.
 
-The orbit reads from `universe-data.js`. Add entries only when their titles, descriptions, status, and URLs can be supported by source material. Use `research`, `projects`, or `repositories` arrays; repository entries should only be added after verifying their URL and project description. Each satellite is a keyboard-accessible button that opens a detail dialog, and reduced-motion preference freezes the orbits in place.
+The rover entry uses the resume-described SIM8202G-M2 build and records the conflicting modem mentions in the manuscript and repository audit as unconfirmed version mapping. The GAGAN project names Flask, OpenPyXL, PyWebView, Excel, and authentication; it does not claim Tkinter or include operational data. TransitOps is identified as a team/fork contribution limited to the documented ChromaDB ingestion and retrieval layer. SafeIntern-AI's AI-assisted implementation is described as designed/directed and reviewed/merged rather than wholly hand-coded. The claim-review evidence system is presented as a documentation contribution only because implementation authorship is unverified.
 
-The Research Universe includes the ICWITE 2026 paper presentation and NMIC '26 review manuscript listed in the supplied portfolio source. Local paper files verify both titles. The available files do not confirm an NMIC acceptance, presentation, or publication, so the entry states that status as unconfirmed. Four engineering project entries are included; the rover is described as a design and validation plan because the available paper does not document completed implementation or measured results. The repository ring is empty because no project repository URL could be verified for safe publication.
+The GitHub audit did not support featuring the current JARVIS repository as original work, and recommended holding KNACH until its implementation is verified. Those projects are therefore not shown as completed individual builds. The WhatsApp router is also omitted because the supplied audit lists its repository name but no direct destination URL was available to verify in this environment, and the brief requires a verified link. Other unverified or empty repositories are excluded. For repository entries whose source audit gave a repository name but no direct URL, the site leaves the URL unavailable instead of guessing a link.
 
-## Content to verify and personalize
+The existing laser communication prototype remains in the orbit because it was already described in the portfolio; its detailed lab notes and results were not present among the supplied project files.
 
-The GitHub and LinkedIn links point to Dee's profiles. No public email address was supplied, so Email remains a visible placeholder. The rover entry uses the hardware described in its local project manuscript; its implementation and test results remain unconfirmed. No paper URL, acceptance claim, publication identifier, project-repository URL, or measured result is claimed here.
+## Links and contact
 
-The source portfolio includes the black-hole/orbit visual, which now presents the research and engineering work data-driven from `universe-data.js`.
+The site links to the GitHub and LinkedIn profiles. No public email address was supplied, so Email remains a placeholder.
+
+## Publishing
+
+The configured GitHub Pages URL is <https://dee-kshaa.github.io/dee-personal-site/>. Deployment is handled through the existing repository setup; this project has no local build step.
 
 ## AI-use disclosure
 
-AI assistance drafted this page's structure, visual CSS, project-note wording, and small JavaScript interactions. Dee supplied the portfolio and challenge brief; the initial code and wording were generated with AI. Dee should review, edit, test, and be able to explain the submitted work. This disclosure describes the current starting point and should be updated to match Dee's own edits and learning before submission.
-
-## Credits
-
-Built from Dee's supplied art-portfolio HTML and the Hack Club Stardance Personal Site brief. The orbital diagrams and art-inspired CSS visuals are original to this project. The font stack uses DM Sans, DM Mono, and Playfair Display when Google Fonts is available, with local system fallbacks.
+AI tools have been used to assist with portions of the site structure, CSS, content wording, and JavaScript. The project and contribution descriptions are cross-checked against the supplied source documents, and AI-assisted work is identified where relevant.
 
 ## License
 
