@@ -1,12 +1,12 @@
 # DEE.EXE — An Engineer's Universe
 
-DEE.EXE is B. Deekshaa's personal site: an evolving engineering notebook and art archive. It introduces her interests in satellite navigation, signals, embedded systems, research, and creative work. The site is designed as a small project that can be read, edited, and hosted as static files while learning web development.
+DEE.EXE is B. Deekshaa's personal site: an evolving engineering notebook and research portfolio. It introduces her interests in satellite navigation, signals, embedded systems, research, and creative work. The site is designed as a small project that can be read, edited, and hosted as static files while learning web development.
 
 ## Features
 
-- Responsive, single-page layout with About, Projects, Research, Experience, Art, Currently Exploring, and Contact sections
-- Artwork-only animated black-hole universe with accretion rings, stars, particles, and an accessible fullscreen viewer
-- Data-driven art collection with no fictional titles or generated artwork; the orbit remains empty until real images are added
+- Responsive, single-page layout with About, Projects, Research, Experience, Research Universe, Currently Exploring, and Contact sections
+- Animated black-hole Research Universe with three category orbits, stars, particles, and accessible entry details
+- Data-driven research, engineering project, and repository entries, with a keyboard-accessible browse list
 - Keyboard-accessible navigation, mobile menu, expandable project notes, reduced-motion support, and no runtime dependencies
 - No framework, build tool, or runtime dependency
 
@@ -14,12 +14,11 @@ DEE.EXE is B. Deekshaa's personal site: an evolving engineering notebook and art
 
 - Semantic HTML5
 - Custom CSS3 for layout, typography, responsiveness, diagrams, and motion
-- Vanilla JavaScript for navigation, the artwork orbit and viewer, footer year, and back-to-top control
+- Vanilla JavaScript for navigation, the Research Universe orbit and entry dialog, footer year, and back-to-top control
 
 ## Links
 
 - GitHub Pages URL (configured; first deployment pending): <https://dee-kshaa.github.io/dee-personal-site/>
-- Public repository: <https://github.com/dee-kshaa/dee-personal-site>
 
 ## Files
 
@@ -28,10 +27,7 @@ personal-site/
 ├── index.html
 ├── style.css
 ├── script.js
-├── artworks.js
-├── assets/
-│   └── artwork/
-│       └── README.md
+├── universe-data.js
 ├── README.md
 └── LICENSE
 ```
@@ -48,36 +44,19 @@ Then open <http://localhost:8000>.
 
 ## Publish with GitHub Pages
 
-The public repository is configured to deploy from the `main` branch at `/ (root)`. After pushing changes, check the **Actions** tab and the Pages section under **Settings** for deployment status, then open the live URL above.
+The GitHub Pages URL is listed above. After committing and pushing changes, check Actions and Pages settings for the deployment status. Keep asset and page links repository-relative so they resolve under `/dee-personal-site/`.
 
-## Add original artwork
+## Research Universe content
 
-No actual artwork image files were included in the supplied portfolio folder or website. The artwork universe therefore starts with zero cards; it does not display procedural stand-ins or treat sample titles as actual works.
+The orbit reads from `universe-data.js`. Add entries only when their titles, descriptions, status, and URLs can be supported by source material. Use `research`, `projects`, or `repositories` arrays; repository entries should only be added after verifying their URL and project description. A keyboard-accessible list below the visualization provides access to every entry, and reduced-motion preference freezes the orbits in place.
 
-1. Add your own image files to `assets/artwork/` (JPG/JPEG, PNG, or WebP; portrait, landscape, and square images are supported). For example: `assets/artwork/my-mandala.jpg`.
-2. Add one entry for each image to the array in `artworks.js`, using the exact title and medium you want shown:
-
-```js
-window.artworks = [
-  {
-    id: 'my-mandala',
-    src: 'assets/artwork/my-mandala.jpg',
-    title: 'Your verified title',
-    category: 'Mandala',
-    alt: 'A concise visual description of your artwork',
-    description: 'Optional description written by you.',
-    attribution: 'Optional scan or photo credit'
-  }
-];
-```
-
-The path is relative to the site, so it works on GitHub Pages under `/dee-personal-site/`. Use your actual artwork and metadata. Images use `object-fit: contain` so the viewer does not crop or distort them. Keep `description` and `attribution` only when there is information to share.
+The Research Universe includes the ICWITE 2026 paper presentation listed in the existing portfolio archive and a revised GNSS/SBAS review manuscript listed alongside NMIC '26 in that archive. Local paper files verify both titles. The available files do not confirm an NMIC acceptance, presentation, or publication, so the entry states that status as unconfirmed. Four engineering project entries are included; the rover is described as a design and validation plan because the available paper does not document completed implementation or measured results. The repository ring is empty because no project repository URL could be verified for safe publication.
 
 ## Content to verify and personalize
 
-The GitHub and LinkedIn links point to Dee's profiles. No public email address was supplied, so Email remains a visible placeholder. Before submission, verify all project descriptions and experience entries against original records. In particular, add the exact details for the NMIC '26 review-paper status and the rover's actual hardware/network version. No measurements, rankings, publication identifiers, or GitHub project repositories are claimed here.
+The GitHub and LinkedIn links point to Dee's profiles. No public email address was supplied, so Email remains a visible placeholder. The rover entry uses the hardware described in its local project manuscript; its implementation and test results remain unconfirmed. No paper URL, acceptance claim, publication identifier, project-repository URL, or measured result is claimed here.
 
-The source portfolio folder contains the black-hole/orbit concept and placeholder SVG art, but no actual artwork image files. The new Art section retains the animated universe concept and waits for real images instead of using those placeholders. See `assets/artwork/README.md` and `artworks.js` to add them.
+The source portfolio includes the black-hole/orbit visual, which now presents the research and engineering work data-driven from `universe-data.js`.
 
 ## AI-use disclosure
 
